@@ -1,4 +1,7 @@
 name: My-GithubActions-Bacics
+env:
+  APPLICATION_NAME: "MyApp"
+  PACKAGE_NAME: "myapp_deploy_version_$({github.sha})" 
 
 on:
   push:
@@ -11,8 +14,11 @@ jobs:
     steps:
     - name: Print Hello Message
       run: echo "hello world"
-    - name: Print Hello Message 2nd step
-      run: echo "hello from 2nd step"
+    - name: execute few commands
+      run: |
+        echo "hello message 1"
+        echo "hello message 2"
+        echo "Application name: $({env.APPLICATION_NAME})"
   job2:
     runs-on: ubuntu-latest
     needs: [job1]
