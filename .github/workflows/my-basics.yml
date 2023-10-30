@@ -11,3 +11,8 @@ jobs:
     steps:
     - name: Print Hello Message
       run: echo "hello world"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print another Message
+      run: echo "hello world another message"
