@@ -40,9 +40,10 @@ jobs:
     - name: try zip
       run: zip --version
     - name: Pront env variables
+      env:
+        LOCAL_VAR: "super local var"
       run: |
         echo "job level var1 = ${{env.VAR1}}"
         echo "job level var2 = ${{env.VAR2}}"
         echo "var3 = ${{LOCAL_VAR}}"
-      env:
-        LOCAL_VAR: "super local var"
+      
