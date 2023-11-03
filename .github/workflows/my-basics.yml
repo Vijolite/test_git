@@ -1,0 +1,49 @@
+name: My-GithubActions-Bacics
+env:
+  APPLICATION_NAME: "MyApp"
+  PACKAGE_NAME: "myapp_deploy_version_${{github.sha}}" 
+
+on:
+  push:
+    branches: 
+      - main
+      
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello Message
+      run: echo "hello world"
+    - name: execute few commands
+      run: |
+        echo "hello message 1"
+        echo "hello message 2"
+        echo "Application name: ${{ env.APPLICATION_NAME }}"
+        echo "Package name: ${{ env.PACKAGE_NAME }}"
+    - name: List current folder
+      run: ls -la
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+    - name: List current folder
+      run: ls -la
+  job2:
+    runs-on: ubuntu-latest
+    needs: [job1]
+    env: 
+      VAR1: :"job level var 1"
+      VAR2: :"job level var 2"
+    steps:
+    - name: Print another Message
+      run: echo "hello world another message"
+    - name: try aws
+      run: aws --version
+    - name: try zip
+      run: zip --version
+    - name: Pront env variables
+      env:
+        LOCAL_VAR: "super local var"
+      run: |
+        echo "job level var1 = ${{env.VAR1}}"
+        echo "job level var2 = ${{env.VAR2}}"
+        echo "var3 = ${{env.LOCAL_VAR}}"
+      
