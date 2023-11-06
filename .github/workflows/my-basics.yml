@@ -2,7 +2,7 @@ name: CI-CD-pipeline-to-AWS-Elastic-Bean-Stock
 env:
   EB_PACKAGE_S3_BUCKET_NAME: "vijolite-for-github"
   EB_APPLICATION_NAME: "hello_flask"
-  EB_ENVIRONMENT_NAME: "My-Flask-env"
+  EB_ENVIRONMENT_NAME: "MyAppWeb-env"
   DEPLOY_PACKAGE_NAME: "flask_app_${{github.sha}}.zip"
   AWS_REGION_NAME: "us-east-1"
   
