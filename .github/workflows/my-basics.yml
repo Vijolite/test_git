@@ -51,7 +51,8 @@ jobs:
     - name: Create new Elastic Beanstack Application
       run: |
         aws elasticbeanstalk create-application-version \
-        --application-name ${{env.EB_APPLICATION_NAME}} 
+        --application-name ${{env.EB_APPLICATION_NAME}} \
+        --version-label "Ver-${{github.sha}}"
 
     - name: Deploy new Elastic BeanStalk application version
       run: aws elasticbeanstalk update-environment --environment-name ${{env.EB_ENVIRONMENT_NAME}} --version-label "Ver-${{github.sha}}"
