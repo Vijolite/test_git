@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v1
       
     - name: Create Zip deployment package
-      run: zip -r ${{env.DEPLOY_PACKAGE_NAME}} ./ -x *.git*
+      run: zip -r deploy_package.zip ./ -x *.git*
 
     - name: Configure my AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
