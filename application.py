@@ -1,8 +1,20 @@
-from flask import Flask 
-application = Flask(__name__)
-@application.route('/') 
-def hello_world(): 
-    return 'Hello GitHub Actions World!'
+import flask
+
+
+# Create the application.
+APP = flask.Flask(__name__)
+
+
+@APP.route('/')
+def index():
+    """ Displays the index page accessible at '/'
+    """
+    return flask.render_template('index.html')
+
+
+if __name__ == '__main__':
+    APP.debug=True
+    APP.run()
 
 
     
