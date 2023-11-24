@@ -1,4 +1,4 @@
-# test_git
+# python flask deployment to aws elastic beanstalk
 before deployment create on aws:
 - s3 bucket: "vijolite-for-github"
 - Elastic Beanslalk App: "MyAppWeb"
